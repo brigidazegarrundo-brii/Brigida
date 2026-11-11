@@ -1,0 +1,278 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* FONDO */
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background: url("../img/img2.jpeg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+
+/* BANNER */
+
+.banner{
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 3px solid #f8c8dc;
+}
+
+
+/* MENÚ */
+
+.menu{
+    list-style: none;
+    background-color: #f8c8dc;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.menu li{
+    position: relative;
+}
+
+.menu li a{
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #6d4c5b;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu li a:hover{
+    background-color: #fde2eb;
+}
+
+
+/* SUBMENÚ */
+
+.submenu{
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    min-width: 200px;
+    background-color: #f9d5e5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    z-index: 1000;
+}
+
+.submenu li a{
+    padding: 12px 20px;
+    color: #6d4c5b;
+}
+
+.submenu li a:hover{
+    background-color: #fdebf1;
+}
+
+.menu li:hover .submenu{
+    display: block;
+}
+
+
+/* PRESENTACIÓN */
+
+.presentacion{
+    width: 85%;
+    max-width: 900px;
+    margin: 70px auto;
+    text-align: center;
+}
+
+.presentacion h3{
+    color: #6d4c5b;
+    font-size: 28px;
+    font-style: italic;
+}
+
+.presentacion h1{
+    color: #c76b98;
+    font-size: 75px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 3px 3px 5px #f8c8dc;
+}
+
+.presentacion h2{
+    color: #c76b98;
+    font-size: 32px;
+    margin: 5px 0 10px;
+}
+
+.presentacion p{
+    color: #6d4c5b;
+    font-size: 19px;
+    margin: 15px auto 30px;
+}
+
+.presentacion img{
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #f8c8dc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+}
+
+
+/* DESCRIPCIÓN */
+
+.descripcion{
+    width: 70%;
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 25px 35px;
+    background: rgba(255, 240, 245, 0.90);
+    border: 2px solid #f8c8dc;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(199, 107, 152, 0.18);
+}
+
+.descripcion p{
+    color: #6d4c5b;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 5px 0 10px;
+}
+
+.descripcion span{
+    color: #c76b98;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.frase{
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px dashed #f0afc5;
+    color: #c76b98;
+    font-size: 17px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+/* EJERCICIOS */
+
+.ejercicio{
+    width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    background: rgba(255, 240, 245, 0.92);
+    border: 3px solid #f8c8dc;
+    border-radius: 25px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.ejercicio h1{
+    color: #c76b98;
+    font-size: 45px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px #f8c8dc;
+}
+
+.ejercicio h2{
+    color: #6d4c5b;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.ejercicio p{
+    color: #c76b98;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    margin: 15px 0 8px;
+}
+
+
+/* LABEL */
+
+.ejercicio label{
+    display: block;
+    color: #c76b98;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    margin: 15px 0 8px;
+}
+
+
+/* INPUT */
+
+.ejercicio input{
+    padding: 12px;
+    width: 180px;
+    border: 2px solid #f8c8dc;
+    border-radius: 18px;
+    outline: none;
+    background: #fff;
+    color: #6d4c5b;
+    font-size: 18px;
+    text-align: center;
+}
+
+.ejercicio input:focus{
+    border-color: #c76b98;
+    box-shadow: 0 0 8px #f8c8dc;
+}
+
+
+/* BOTONES */
+
+.ejercicio button{
+    display: block;
+    margin: 20px auto;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 20px;
+    background-color: #c76b98;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(199,107,152,0.25);
+}
+
+.ejercicio button:hover{
+    background-color: #b85b89;
+    transform: scale(1.05);
+}
+
+
+/* RESULTADO */
+
+.ejercicio #resultado{
+    margin: 25px auto 5px;
+    padding: 15px 25px;
+    width: 80%;
+    background: #fff;
+    border: 2px solid #f8c8dc;
+    border-radius: 20px;
+    color: #c76b98;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(199,107,152)
+}
