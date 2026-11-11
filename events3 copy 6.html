@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medio de transporte</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1b5e20, #4caf50, #81c784);
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px 15px;
+        }
+
+        h2 {
+            text-align: center;
+            color: white;
+        }
+
+        form {
+            width: 100%;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 18px;
+            background-color: #fff;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+            overflow-x: auto;
+        }
+
+        h3 {
+            color: #2e7d32;
+            text-align: center;
+        }
+
+        img {
+            width: 100px;
+            margin-top: 10px;
+        }
+        table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th {
+    background-color: #ddd;
+    color: black;
+    font-weight: normal;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #eee;
+}
+
+input[type="number"], select {
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+}
+
+/* Recuadro sencillo para el total */
+#total {
+    text-align: right;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #eee;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <h2>EVENTOS</h2>
+
+    <form>
+        <h3>SELECCIONAR UN LIBRO</h3>
+
+        <table>
+            <tr>
+                <th>Nro</th>
+                <th>Cantidad</th>
+                <th>Libro</th>
+                <th>Precio unitario</th>
+                <th>Subtotal</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+
+                <td>
+                    <input type="number" class="cantidad"
+                           value="2" min="0">
+                </td>
+
+                <td>
+                    <select class="libro">
+                        <option value="">Seleccione un libro</option>
+                        <option value="bella_durmiente">La bella durmiente</option>
+                        <option value="La_bella_y_la_bestia">La bella y la bestia</option>
+                        <option value="Rapunzel">Rapunzel</option>
+                    </select>
+
+                    <br>
+
+                    <img src="" alt="Libro seleccionado"
+                         class="foto" style="display:none;">
+                </td>
+
+                <td>
+                    <input type="number" class="precio"
+                           value="21" min="0">
+                </td>
+
+                <td class="subtotal">42</td>
+            </tr>
+
+            <tr>
+                <td>2</td>
+
+                <td>
+                    <input type="number" class="cantidad"
+                           value="4" min="0">
+                </td>
+
+                <td>
+                    <select class="libro">
+                        <option value="">Seleccione un libro</option>
+                        <option value="bella_durmiente">La bella durmiente</option>
+                        <option value="La_bella_y_la_bestia">La bella y la bestia</option>
+                        <option value="Rapunzel">Rapunzel</option>
+                    </select>
+
+                    <br>
+
+                    <img src="" alt="Libro seleccionado"
+                         class="foto" style="display:none;">
+                </td>
+
+                <td>
+                    <input type="number" class="precio"
+                           value="5" min="0">
+                </td>
+
+                <td class="subtotal">20</td>
+            </tr>
+        </table>
+
+        <div id="total">TOTAL: 62</div>
+    </form>
+
+    <script>
+        const libros = document.querySelectorAll(".libro");
+        const fotos = document.querySelectorAll(".foto");
+        const cantidades = document.querySelectorAll(".cantidad");
+        const precios = document.querySelectorAll(".precio");
+        const subtotales = document.querySelectorAll(".subtotal");
+        const total = document.getElementById("total");
+
+        // Mostrar la imagen del libro seleccionado
+        libros.forEach(function(libro, i) {
+            libro.addEventListener("change", function() {
+
+                switch (libro.value) {
+                    case "bella_durmiente":
+                        fotos[i].src = "imgg/img2.PNG";
+                        fotos[i].style.display = "block";
+                        break;
+
+                    case "La_bella_y_la_bestia":
+                        fotos[i].src = "imgg/img4.PNG";
+                        fotos[i].style.display = "block";
+                        break;
+
+                    case "Rapunzel":
+                        fotos[i].src = "imgg/img5.PNG";
+                        fotos[i].style.display = "block";
+                        break;
+
+                    default:
+                        fotos[i].src = "";
+                        fotos[i].style.display = "none";
+                        break;
+                }
+            });
+        });
+
+        // Calcular subtotales y total
+        function calcularTotal() {
+            let sumaTotal = 0;
+
+            for (let i = 0; i < cantidades.length; i++) {
+                let cantidad = Number(cantidades[i].value) || 0;
+                let precio = Number(precios[i].value) || 0;
+
+                let subtotal = cantidad * precio;
+
+                subtotales[i].textContent = subtotal;
+                sumaTotal += subtotal;
+            }
+
+            total.textContent = "TOTAL: " + sumaTotal;
+        }
+
+        cantidades.forEach(function(cantidad) {
+            cantidad.addEventListener("input", calcularTotal);
+        });
+
+        precios.forEach(function(precio) {
+            precio.addEventListener("input", calcularTotal);
+        });
+
+        calcularTotal();
+    </script>
+
+</body>
+</html>
+
+
+
+
