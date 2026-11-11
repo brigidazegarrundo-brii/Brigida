@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/Style.CSS">
+
+    <title>NÚMERO PERFECTO</title>
+</head>
+
+<body>
+
+<ul class="menu">
+
+    <li>
+        <a href="index.html">INICIO</a>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES MATEMÁTICAS</a>
+
+        <ul class="submenu">
+            <li><a href="factorial.html">FACTORIAL</a></li>
+            <li><a href="fibonacci.html">FIBONACCI</a></li>
+            <li><a href="primos.html">NÚMEROS PRIMOS</a></li>
+            <li><a href="ecuacion.html">ECUACIÓN DE SEGUNDO GRADO</a></li>
+            <li><a href="perfectos.html">NÚMERO PERFECTO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE CADENAS</a>
+
+        <ul class="submenu">
+            <li><a href="palindromo.html">PALÍNDROMO</a></li>
+            <li><a href="mosca.html">MOSCA</a></li>
+            <li><a href="buscar.html">BUSCAR Y REEMPLAZAR</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE FECHA Y HORA</a>
+
+        <ul class="submenu">
+            <li><a href="fecha.html">FECHA ACTUAL</a></li>
+            <li><a href="reloj.html">RELOJ</a></li>
+            <li><a href="tiempo.html">TIEMPO DEL ALGORITMO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES CON ARRAYS</a>
+
+        <ul class="submenu">
+            <li><a href="agregar.html">AGREGAR DATOS</a></li>
+            <li><a href="girando.html">GIRAR ARRAY</a></li>
+            <li><a href="mayusculas.html">MAYÚSCULAS Y MINÚSCULAS</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+
+<section class="ejercicio">
+
+    <h1>NÚMERO PERFECTO</h1>
+
+    <h2>Verificar número perfecto</h2>
+
+    <p>
+        Ingrese un número para verificar si es perfecto.
+    </p>
+
+    <form>
+
+        <label for="numero">Número:</label>
+
+        <input type="number" id="numero">
+
+        <button type="button" onclick="perfecto()">
+            COMPROBAR
+        </button>
+
+    </form>
+    <p id="resultado"></p>
+</section>
+<script>
+function perfecto(){
+    let n = document.getElementById("numero").value;
+    let suma = 0;
+    for(let i = 1; i < n; i++){
+        if(n % i == 0){
+            suma = suma + i;
+        }
+    }
+    if(suma == n){
+        document.getElementById("resultado").innerHTML =
+            "El número " + n + " es PERFECTO ♡";
+    }else{
+        document.getElementById("resultado").innerHTML =
+            "El número " + n + " NO es perfecto";
+    }
+}
+</script>
+</body>
+</html>

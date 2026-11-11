@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/Style.CSS">
+
+    <title>ECUACIÓN DE SEGUNDO GRADO</title>
+</head>
+
+<body>
+
+<ul class="menu">
+
+    <li>
+        <a href="index.html">INICIO</a>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES MATEMÁTICAS</a>
+
+        <ul class="submenu">
+            <li><a href="factorial.html">FACTORIAL</a></li>
+            <li><a href="fibonacci.html">FIBONACCI</a></li>
+            <li><a href="primos.html">NÚMEROS PRIMOS</a></li>
+            <li><a href="ecuacion.html">ECUACIÓN DE SEGUNDO GRADO</a></li>
+            <li><a href="perfectos.html">NÚMERO PERFECTO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE CADENAS</a>
+
+        <ul class="submenu">
+            <li><a href="palindromo.html">PALÍNDROMO</a></li>
+            <li><a href="mosca.html">MOSCA</a></li>
+            <li><a href="buscar.html">BUSCAR Y REEMPLAZAR</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE FECHA Y HORA</a>
+
+        <ul class="submenu">
+            <li><a href="fecha.html">FECHA ACTUAL</a></li>
+            <li><a href="reloj.html">RELOJ</a></li>
+            <li><a href="tiempo.html">TIEMPO DEL ALGORITMO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES CON ARRAYS</a>
+
+        <ul class="submenu">
+            <li><a href="agregar.html">AGREGAR DATOS</a></li>
+            <li><a href="girando.html">GIRAR ARRAY</a></li>
+            <li><a href="mayusculas.html">MAYÚSCULAS Y MINÚSCULAS</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+
+<section class="ejercicio">
+
+    <h1>ECUACIÓN DE SEGUNDO GRADO</h1>
+
+    <h2>Resolver la ecuación</h2>
+
+    <p>
+        Introduzca los valores de a, b y c.
+    </p>
+
+    <form>
+
+        <label for="a">Primer valor (a):</label>
+        <input type="number" id="a">
+
+        <label for="b">Segundo valor (b):</label>
+        <input type="number" id="b">
+
+        <label for="c">Tercer valor (c):</label>
+        <input type="number" id="c">
+
+        <button type="button" onclick="resultado()">
+            RESOLVER
+        </button>
+
+    </form>
+
+    <p id="resultado"></p>
+
+</section>
+
+
+<script>
+
+function resultado(){
+
+    let a = document.getElementById("a").value;
+    let b = document.getElementById("b").value;
+    let c = document.getElementById("c").value;
+
+    let dis = Math.pow(b, 2) - (4 * a * c);
+
+    if(a == 0){
+
+        document.getElementById("resultado").innerHTML =
+            "El valor de a no puede ser 0.";
+
+    }else if(dis < 0){
+
+        document.getElementById("resultado").innerHTML =
+            "la solucion es imaginaria.";
+
+    }else{
+
+        let x1 = (-b + Math.sqrt(dis)) / (2 * a);
+        let x2 = (-b - Math.sqrt(dis)) / (2 * a);
+
+        document.getElementById("resultado").innerHTML =
+            "x1 = " + x1 + "<br>x2 = " + x2;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

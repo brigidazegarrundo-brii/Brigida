@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="CSS/Style.CSS">
+
+    <title>GIRAR ARRAY</title>
+</head>
+
+<body>
+
+<ul class="menu">
+
+    <li>
+        <a href="index.html">INICIO</a>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES MATEMÁTICAS</a>
+        <ul class="submenu">
+            <li><a href="factorial.html">FACTORIAL</a></li>
+            <li><a href="fibonacci.html">FIBONACCI</a></li>
+            <li><a href="primos.html">NÚMEROS PRIMOS</a></li>
+            <li><a href="ecuacion.html">ECUACIÓN DE SEGUNDO GRADO</a></li>
+            <li><a href="perfectos.html">NÚMERO PERFECTO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE CADENAS</a>
+        <ul class="submenu">
+            <li><a href="palindromo.html">PALÍNDROMO</a></li>
+            <li><a href="mosca.html">MOSCA</a></li>
+            <li><a href="buscar.html">BUSCAR Y REEMPLAZAR</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES DE FECHA Y HORA</a>
+        <ul class="submenu">
+            <li><a href="fecha.html">FECHA ACTUAL</a></li>
+            <li><a href="reloj.html">RELOJ</a></li>
+            <li><a href="tiempo.html">TIEMPO DEL ALGORITMO</a></li>
+        </ul>
+    </li>
+
+    <li>
+        <a href="#">FUNCIONES CON ARRAYS</a>
+        <ul class="submenu">
+            <li><a href="agregar.html">AGREGAR DATOS</a></li>
+            <li><a href="girando.html">GIRAR ARRAY</a></li>
+            <li><a href="mayusculas.html">MAYÚSCULAS Y MINÚSCULAS</a></li>
+        </ul>
+    </li>
+
+</ul>
+
+
+<section class="ejercicio">
+
+    <h1>GIRAR ARRAY</h1>
+
+    <h2>Girar un array</h2>
+
+    <p>
+        Agregue datos al vector y luego gírelo a la derecha o izquierda.
+    </p>
+
+    <form>
+
+        <label for="dato">Dato:</label>
+
+        <input type="text" id="dato">
+
+        <button type="button" onclick="agregar()">
+            ADICIONAR
+        </button>
+
+    </form>
+
+    
+
+    <button type="button" onclick="derecha()">
+        GIRAR A LA DERECHA
+    </button>
+
+    <button type="button" onclick="izquierda()">
+        GIRAR A LA IZQUIERDA
+    </button>
+    
+    <p id="resultado"></p>
+
+</section>
+
+
+<script>
+let datos = [];
+function mostrar(){
+    document.getElementById("resultado").innerHTML =
+        JSON.stringify(datos);
+
+}
+function agregar(){
+    let dato = document.getElementById("dato").value;
+    datos.push(dato);
+    document.getElementById("dato").value = "";
+    mostrar();
+
+}
+function derecha(){
+    let ultimo = datos.pop();
+    datos.unshift(ultimo);
+    mostrar();
+}
+function izquierda(){
+    let primero = datos.shift();
+    datos.push(primero);
+    mostrar();
+}
+</script>
+</body>
+</html>
